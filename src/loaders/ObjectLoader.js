@@ -330,9 +330,8 @@ Object.assign( THREE.ObjectLoader.prototype, {
 
 		if ( json !== undefined && json.length > 0 ) {
 
-			var manager = new THREE.LoadingManager( onLoad );
-
-			var loader = new THREE.ImageLoader( manager );
+			this.manager.onLoad = onLoad;
+			var loader = new THREE.ImageLoader( this.manager );
 			loader.setCrossOrigin( this.crossOrigin );
 
 			for ( var i = 0, l = json.length; i < l; i ++ ) {
